@@ -1,0 +1,57 @@
+<div>
+    <!-- nav bar -->
+    <div>
+        <nav class="navbar navbar-expand-lg bg-light">
+          <div class="container-fluid">
+            <a class=" navbar-brand text-primary fs-4" href="#">
+              <i class=" fa-solid fa-building-columns ps-5" id="logo"></i>&nbsp;
+              Online Banking</a>
+          </div>
+        </nav>
+      </div>
+      
+    <!-- Reactive Forms -->
+    <div class="container mt-5 mb-4">
+        <div class="row">
+            <div class="col-lg-7">
+                <img src="https://img.freepik.com/free-vector/customer-sitting-with-laptop-bank-with-credit-card-financial-savings-personal-bank-account-savings-bank-deposit-fixed-rate-loan-concept-illustration_335657-2541.jpg?w=2000" alt="no image" width="100%">
+            </div>
+            <div class="col-lg-5">
+                <h1 class="fs-1  text-center pt-5" id="login">Continue to login.. </h1>
+                <div class="  mt-5 border rounded p-3">
+                    <!-- <h1 class="text-center">Login <Form></Form></h1> -->
+                    <form (ngSubmit)="login()" [formGroup]="loginForm" action="" class="mt-4">
+                        <div class="mb-2">
+                            <label for="" class="form-label">Account Number</label>
+                            <input formControlName="acno" name="acno" type="text" class="form-control" placeholder="Account Number">
+                        </div>
+                        <div *ngIf="this.loginForm.get('acno')?.errors && this.loginForm.get('acno')?.touched" class="text-danger">
+                            Invalid Account Number
+                        </div>
+                        <div>
+                            <label for="" class="form-label">Password</label>
+                            <input formControlName="pswd" name="pswd" type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <div *ngIf="this.loginForm.get('pswd')?.errors && this.loginForm.get('pswd')?.touched" class="text-danger">
+                            Invalid Password
+                        </div>
+                        <div style="color: red;">{{eMsg}}</div>
+                
+                        <div class="">
+                            <button *ngIf="!msg" type="submit" class="btn btn-dark mt-2 mb-2">Login</button>
+                            <!-- bootstrap spiner code -->
+                            <button *ngIf="msg" class="btn btn-dark" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Loging....
+                              </button>&nbsp;
+                              
+                              <!-- insted of href use routerLink through that we can avoid total page refresh -->
+                            <span class="text-end">New User ? Click here to <a class="text-end" routerLink="register" >Register</a></span>
+                        </div>
+                    </form>
+                </div>     
+            </div>
+            </div>
+        </div>
+    
+</div>  

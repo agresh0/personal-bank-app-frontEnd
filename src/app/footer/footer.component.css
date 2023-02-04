@@ -1,0 +1,14 @@
+footer{
+    height: 110px;
+    background-color: #d3d6db;
+}
+html {
+    position: relative;
+    min-height: 100%;
+}
+#footer {
+    position: static;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}

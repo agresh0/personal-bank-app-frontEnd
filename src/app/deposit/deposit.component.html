@@ -1,0 +1,108 @@
+<!-- nav bar -->
+
+<div class="row">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container container-fluid">
+            <div class="col-lg-10">
+                <a class="navbar-brand " routerLink="/dashboard">
+                    <i class=" fa-solid fa-building-columns ps-5" id="logo"></i>&nbsp;
+                    Online Banking
+                </a>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+</div>
+
+
+<div class="container mt-5">
+    <h1>Deposit Form</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sunt reiciendis eaque vero eius optio ad earum maxime
+      numquam nam veritatis cupiditate corporis iure dicta nulla, sapiente quo minus incidunt. Maxime magnam repellendus
+      est facere! Eos quis molestiae nam reiciendis nobis quod nostrum velit ullam cupiditate quam eveniet sunt expedita
+      placeat veniam, blanditiis qui quaerat, magni voluptate deserunt, rerum quos consequatur dolorem itaque asperiores?
+      Incidunt assumenda doloremque sed harum ipsa ad nobis repellendus accusantium accusamus enim voluptatum ex aperiam
+      quasi voluptas consequuntur pariatur, magnam sunt architecto autem neque in impedit totam. Aliquam, nihil eius.
+      Architecto, repellat fugiat praesentium saepe aliquid aut at, alias obcaecati et vero ad accusantium. Necessitatibus
+      repellendus doloremque impedit commodi, earum voluptatum iste est.
+    </p>
+  </div>
+  <div class="row mt-5">
+    <div class="col-1 mt-5"></div>
+    <div class="col-4">
+      <img class="rounded-5 img-fluid" width="400px"
+        src="https://img.freepik.com/free-vector/people-using-mobile-bank-remittance-money_74855-6617.jpg"
+        alt="image not found">
+    </div>
+    <div class="col-6">
+      <form (ngSubmit)="deposit()" [formGroup]="depositForm" class="border p-2">
+  
+  
+        <div class="form-floating mb-3">
+          <input formControlName="acno" name="acno" type="text" class="form-control" id="floatingAcno"
+            placeholder="Account Number">
+          <label for="floatingAcno">Account Number</label>
+        </div>
+  
+        <div *ngIf="this.depositForm.get('acno')?.errors && this.depositForm.get('acno')?.touched" class="text-danger">
+          Invalid Account Number
+        </div>
+  
+        <div class="form-floating mb-3">
+          <input formControlName="pswd" name="pswd" type="password" class="form-control" id="floatingPassword"
+            placeholder="Password">
+          <label for="floatingPassword">Password</label>
+        </div>
+
+        <div *ngIf="this.depositForm.get('pswd')?.errors && this.depositForm.get('pswd')?.touched" class="text-danger">
+            Invalid Password
+          </div>
+        
+
+        <div class="form-floating mb-3">
+            <input formControlName="amount" name="amount" type="text" class="form-control" id="floatingInput"
+              placeholder="amount">
+            <label for="floatingInput">Amount</label>
+          </div>
+  
+  
+        <div *ngIf="this.depositForm.get('amount')?.errors && this.depositForm.get('amount')?.touched" class="text-danger">
+          Invalid Amount
+        </div>
+  
+        <!-- server response -->
+        <div class="text-danger">
+          <b>{{eMsg}}</b>
+        </div>
+  
+        <button type="submit" class="btn btn-primary ">
+          Deposit
+        </button>&nbsp;
+        <span>
+          <button type="button" class="btn btn-light text-light"><a routerLink="/dashboard" class="text-dark">Back</a> </button>
+        </span>
+      </form>
+    </div>
+    <div class="col-1"></div>
+  </div>
+
+  <!-- balance enquiry -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Account Statement</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="text-center">
+      <img src="https://static.vecteezy.com/system/resources/thumbnails/003/216/276/small/tracking-statement-transaction-bank-illustration-concept-vector.jpg" alt="no image">
+    </div>
+    <div>
+      <p>Hi {{user}},</p>
+      <p>Current Balance :</p>
+    </div>
+  </div>
+</div>

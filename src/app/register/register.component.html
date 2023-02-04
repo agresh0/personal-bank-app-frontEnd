@@ -1,0 +1,78 @@
+<div>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand text-danger fs-3" href="#">
+        <i class="fa-solid fa-building-columns ps-5 "></i>&nbsp;
+        Online Banking</a>
+    </div>
+  </nav>
+</div>
+
+<div class="container mt-5">
+  <h1>Register Form</h1>
+  <p>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde sunt reiciendis eaque vero eius optio ad earum maxime
+    numquam nam veritatis cupiditate corporis iure dicta nulla, sapiente quo minus incidunt. Maxime magnam repellendus
+    est facere! Eos quis molestiae nam reiciendis nobis quod nostrum velit ullam cupiditate quam eveniet sunt expedita
+    placeat veniam, blanditiis qui quaerat, magni voluptate deserunt, rerum quos consequatur dolorem itaque asperiores?
+    Incidunt assumenda doloremque sed harum ipsa ad nobis repellendus accusantium accusamus enim voluptatum ex aperiam
+    quasi voluptas consequuntur pariatur, magnam sunt architecto autem neque in impedit totam. Aliquam, nihil eius.
+    Architecto, repellat fugiat praesentium saepe aliquid aut at, alias obcaecati et vero ad accusantium. Necessitatibus
+    repellendus doloremque impedit commodi, earum voluptatum iste est.
+  </p>
+</div>
+<div class="row mt-5">
+  <div class="col-1 mt-5"></div>
+  <div class="col-4">
+    <img class="rounded-5 img-fluid" width="400px"
+      src="https://media.istockphoto.com/id/1252249414/vector/young-annoyed-female-character-sceptical-face-expression.jpg?s=612x612&w=0&k=20&c=hDvWgwS3idKPRbjL9WJHT-aj2zVn29erYFsc13lgNzg="
+      alt="image not found">
+  </div>
+  <div class="col-6">
+    <form (ngSubmit)="register()" [formGroup]="registerForm" class="border p-2">
+      <div class="form-floating mb-3">
+        <input formControlName="username" name="username" type="text" class="form-control" id="floatingInput"
+          placeholder="username">
+        <label for="floatingInput">User Name</label>
+      </div>
+
+      <div *ngIf="this.registerForm.get('username')?.errors && this.registerForm.get('username')?.touched"
+        class="text-danger">
+        Invalid User Name
+      </div>
+
+      <div class="form-floating mb-3">
+        <input formControlName="acno" name="acno" type="text" class="form-control" id="floatingAcno"
+          placeholder="Account Number">
+        <label for="floatingAcno">Account Number</label>
+      </div>
+
+      <div *ngIf="this.registerForm.get('acno')?.errors && this.registerForm.get('acno')?.touched" class="text-danger">
+        Invalid Account Number
+      </div>
+
+      <div class="form-floating mb-3">
+        <input formControlName="pswd" name="pswd" type="password" class="form-control" id="floatingPassword"
+          placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+
+      <div *ngIf="this.registerForm.get('pswd')?.errors && this.registerForm.get('pswd')?.touched" class="text-danger">
+        Invalid Password
+      </div>
+
+      <!-- server response -->
+      <div class="'text-danger">
+        <b>{{eMsg}}</b>
+      </div>
+
+      <button type="submit" class="btn btn-primary ">
+        Register
+      </button>&nbsp;
+      <span>
+        <button type="button" class="btn btn-light text-light"><a routerLink="" class="text-dark">Back</a> </button>
+      </span>
+    </form>
+  </div>
+  <div class="col-1"></div>
+</div>
